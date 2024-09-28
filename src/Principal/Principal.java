@@ -35,6 +35,9 @@ public class Principal  extends JFrame{
 		MnIAgregar.setHorizontalAlignment(SwingConstants.LEFT);
 		mnPeliculas.add(MnIAgregar);
 		
+		JMenuItem MnIListar = new JMenuItem("Listar");
+		mnPeliculas.add(MnIListar);
+		
 	}
 
 	public static void main(String[] args) {
