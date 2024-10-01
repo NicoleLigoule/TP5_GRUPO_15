@@ -15,9 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class AgregarPeliculas extends JPanel {
 	private JTextField textnombre;
+	private JComboBox<String> cbGenero;
 
 	/**
 	 * Create the panel.
@@ -31,11 +33,7 @@ public class AgregarPeliculas extends JPanel {
 				FormSpecs.RELATED_GAP_COLSPEC,
 				FormSpecs.DEFAULT_COLSPEC,
 				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				FormSpecs.DEFAULT_COLSPEC,
-				FormSpecs.RELATED_GAP_COLSPEC,
-				ColumnSpec.decode("default:grow"),
+				ColumnSpec.decode("max(74dlu;default):grow"),
 				FormSpecs.RELATED_GAP_COLSPEC,
 				ColumnSpec.decode("default:grow"),},
 			new RowSpec[] {
@@ -55,26 +53,28 @@ public class AgregarPeliculas extends JPanel {
 				FormSpecs.DEFAULT_ROWSPEC,}));
 		
 		JLabel lblId = new JLabel("ID");
-		add(lblId, "8, 4");
+		add(lblId, "4, 4");
 		
 		JLabel lblNewLabel = new JLabel("New label");
-		add(lblNewLabel, "12, 4");
+		add(lblNewLabel, "8, 4");
 		
 		JLabel lblNombre = new JLabel("Nombre");
-		add(lblNombre, "8, 8");
+		add(lblNombre, "4, 8");
 		
 		textnombre = new JTextField();
-		add(textnombre, "12, 8, fill, default");
+		add(textnombre, "8, 8, fill, default");
 		textnombre.setColumns(10);
 		
 		JLabel lblGenero = new JLabel("Genero");
-		add(lblGenero, "8, 12");
+		add(lblGenero, "4, 12");
 		
-		JComboBox comboBox = new JComboBox();
-		add(comboBox, "12, 12, fill, default");
+		cbGenero = new JComboBox<String>();
+		cbGenero.setModel(new DefaultComboBoxModel(new String[] {"Seleccione un género", "Terror", "Acción", "Suspenso", "Romántica"}));
+		add(cbGenero, "8, 12, fill, default");
+
 		
 		JButton btnAceptar = new JButton("Aceptar");
-		add(btnAceptar, "8, 14");
+		add(btnAceptar, "4, 14");
 
 	}
 }
