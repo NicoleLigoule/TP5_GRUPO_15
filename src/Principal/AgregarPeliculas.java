@@ -13,6 +13,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class AgregarPeliculas extends JPanel {
     private JTextField textnombre;
@@ -23,52 +26,83 @@ public class AgregarPeliculas extends JPanel {
      * Create the panel.
      */
     public AgregarPeliculas() {
-        setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
+
 
         // Configuración de la etiqueta y campo de texto para el ID (aquí asumo que es auto-generado)
         JLabel lblId = new JLabel("ID:");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        gbc.insets = new Insets(10, 10, 10, 10);
-        gbc.gridx = 0;
-        gbc.gridy = 0;
-        gbc.anchor = GridBagConstraints.WEST;
-        add(lblId, gbc);
+       
 
         JLabel lblIdValue = new JLabel("Auto-Generated");
         lblIdValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        gbc.gridx = 1;
-        add(lblIdValue, gbc);
-
+        
         // Nombre
-        JLabel lblNombre = new JLabel("Nombre:");
+        JLabel lblNombre = new JLabel("Nombre");
         lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        add(lblNombre, gbc);
-
+        
         textnombre = new JTextField(20);
-        gbc.gridx = 1;
-        add(textnombre, gbc);
-
+        
         // Género
-        JLabel lblGenero = new JLabel("Género:");
+        JLabel lblGenero = new JLabel("G\u00E9nero");
         lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 14));
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        add(lblGenero, gbc);
+
 
         cbGenero = new JComboBox<>();
         cbGenero.setModel(new DefaultComboBoxModel<>(new String[]{"Seleccione un género", "Terror", "Acción", "Suspenso", "Romántica"}));
-        gbc.gridx = 1;
-        add(cbGenero, gbc);
+
 
         // Botón Aceptar
         JButton btnAceptar = new JButton("Aceptar");
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        gbc.anchor = GridBagConstraints.EAST;
-        add(btnAceptar, gbc);
+        
+        JLabel lblId_1 = new JLabel("ID");
+
+        GroupLayout groupLayout = new GroupLayout(this);
+        groupLayout.setHorizontalGroup(
+        	groupLayout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(groupLayout.createSequentialGroup()
+        			.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
+        				.addGroup(groupLayout.createSequentialGroup()
+        					.addGap(97)
+        					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(groupLayout.createSequentialGroup()
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(lblId_1)
+        								.addComponent(lblGenero)
+        								.addComponent(lblNombre))
+        							.addGap(87)
+        							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(lblIdValue, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(textnombre, GroupLayout.PREFERRED_SIZE, 113, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(cbGenero, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+        						.addComponent(btnAceptar, GroupLayout.PREFERRED_SIZE, 142, GroupLayout.PREFERRED_SIZE))))
+        			.addGap(31))
+        );
+        groupLayout.setVerticalGroup(
+        	groupLayout.createParallelGroup(Alignment.TRAILING)
+        		.addGroup(groupLayout.createSequentialGroup()
+        			.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING)
+        				.addGroup(groupLayout.createSequentialGroup()
+        					.addGap(32)
+        					.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(lblId_1)
+        						.addComponent(lblIdValue))
+        					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE))
+        				.addGroup(groupLayout.createSequentialGroup()
+        					.addComponent(lblId, GroupLayout.PREFERRED_SIZE, 0, GroupLayout.PREFERRED_SIZE)
+        					.addGap(87)))
+        			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lblNombre)
+        				.addComponent(textnombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(36)
+        			.addGroup(groupLayout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(lblGenero)
+        				.addComponent(cbGenero, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addComponent(btnAceptar)
+        			.addGap(78))
+        );
+        setLayout(groupLayout);
 
         // Acción para el botón "Aceptar"
         btnAceptar.addActionListener(new ActionListener() {

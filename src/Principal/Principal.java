@@ -61,6 +61,22 @@ public class Principal extends JFrame {
         });
 
         JMenuItem MnIListar = new JMenuItem("Listar");
+        MnIListar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+                contentPane.removeAll();
+
+                // Crea una nueva instancia de AgregarPeliculas y le pasa el listModel
+                Listarpeliculas panel = new Listarpeliculas();
+                 // Pasa el DefaultListModel al panel de agregar películas
+
+                // Agrega el panel AgregarPeliculas al centro del contentPane
+                contentPane.add(panel, BorderLayout.CENTER);
+
+                // Refresca la ventana para asegurarse de que los cambios se reflejen
+                contentPane.repaint();
+                contentPane.revalidate();
+        	}
+        });
         mnPeliculas.add(MnIListar);
     }
 
