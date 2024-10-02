@@ -5,6 +5,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import java.awt.Font;
@@ -17,9 +18,11 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 
+
+
 public class AgregarPeliculas extends JPanel {
     private JTextField textnombre;
-    private JComboBox<String> cbGenero;
+    private JComboBox<Genero> cbGenero;
     private DefaultListModel<Pelicula> listModel;
 
     /**
@@ -48,8 +51,16 @@ public class AgregarPeliculas extends JPanel {
         lblGenero.setFont(new Font("Tahoma", Font.PLAIN, 14));
 
 
-        cbGenero = new JComboBox<>();
-        cbGenero.setModel(new DefaultComboBoxModel<>(new String[]{"Seleccione un género", "Terror", "Acción", "Suspenso", "Romántica"}));
+        cbGenero = new JComboBox<Genero>();
+        
+        cbGenero.addItem(new Genero("Seleccione un género"));
+        cbGenero.addItem(new Genero("Terror"));
+        cbGenero.addItem(new Genero("Acción"));
+        cbGenero.addItem(new Genero("Suspenso"));
+        cbGenero.addItem(new Genero("Romántica"));
+        
+        
+
 
 
         // Botón Aceptar
@@ -110,15 +121,15 @@ public class AgregarPeliculas extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nombre = textnombre.getText();
-                String genero = (String) cbGenero.getSelectedItem();
+                Genero genero = (Genero) cbGenero.getSelectedItem();
 
                 if (nombre.isEmpty() || genero.equals("Seleccione un género")) {
-                    System.out.println("Por favor, complete todos los campos.");
+                    JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
                 } else {
                     // Crear un nuevo objeto Pelicula y agregarlo a listModel
                 	Genero textoSeleccionado= new Genero() ;
                 	Pelicula peli= new Pelicula();
-                	peli.setGenero(textoSeleccionado);
+                	peli.setGenero(genero);
                 	peli.setNombre(textnombre.getText());
                     listModel.addElement(peli);
                     int id=peli.getId()+1;

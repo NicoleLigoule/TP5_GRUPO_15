@@ -53,8 +53,8 @@ public class Pelicula {
 		return genero;
 	}
 
-	public void setGenero(Genero string) {
-		genero=string; 
+	public void setGenero(Genero gen) {
+		genero=gen; 
 	}
 
 	
