@@ -17,7 +17,7 @@ import javax.swing.SwingConstants;
 public class Principal extends JFrame {
     private JPanel contentPane;
     private static DefaultListModel<Pelicula> listModel;
-
+    
     public Principal() {
         // Configura la ventana principal
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -68,7 +68,7 @@ public class Principal extends JFrame {
                 // Crea una nueva instancia de AgregarPeliculas y le pasa el listModel
                 Listarpeliculas panel = new Listarpeliculas();
                  // Pasa el DefaultListModel al panel de agregar películas
-
+                panel.setListModel(listModel);
                 // Agrega el panel AgregarPeliculas al centro del contentPane
                 contentPane.add(panel, BorderLayout.CENTER);
 

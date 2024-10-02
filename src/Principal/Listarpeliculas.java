@@ -4,12 +4,13 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JEditorPane;
 import javax.swing.JLabel;
+import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
 
 public class Listarpeliculas extends JPanel {
-
+    private static DefaultListModel<Pelicula> listModel;
 	/**
 	 * Create the panel.
 	 */
@@ -43,4 +44,9 @@ public class Listarpeliculas extends JPanel {
 		setLayout(groupLayout);
 
 	}
+
+	public static void setListModel(DefaultListModel<Pelicula> listModel) {
+		Listarpeliculas.listModel = listModel;
+	}
+	
 }
