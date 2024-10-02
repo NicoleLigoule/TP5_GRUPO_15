@@ -24,7 +24,14 @@ public class Pelicula {
 	public static int getIdPelicula() {
 		return idPelicula;
 	}
+	public static String ProximoId() {
+		return " "+idPelicula;
+	}
 
+	@Override
+	public String toString() {
+		return "" + Id + "," + Nombre + "," + genero + "";
+	}
 
 	public int getId() {
 		return Id;
@@ -46,8 +53,8 @@ public class Pelicula {
 		return genero;
 	}
 
-	public void setGenero(Genero genero) {
-		this.genero = genero;
+	public void setGenero(Genero string) {
+		genero=string; 
 	}
 
 	

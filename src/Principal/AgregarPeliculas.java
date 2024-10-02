@@ -28,12 +28,13 @@ public class AgregarPeliculas extends JPanel {
     public AgregarPeliculas() {
 
 
+
         // Configuración de la etiqueta y campo de texto para el ID (aquí asumo que es auto-generado)
         JLabel lblId = new JLabel("ID:");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
        
-
-        JLabel lblIdValue = new JLabel("Auto-Generated");
+        
+        JLabel lblIdValue = new JLabel("1");
         lblIdValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         // Nombre
@@ -115,9 +116,13 @@ public class AgregarPeliculas extends JPanel {
                     System.out.println("Por favor, complete todos los campos.");
                 } else {
                     // Crear un nuevo objeto Pelicula y agregarlo a listModel
-                    Pelicula nuevaPelicula = new Pelicula();
-                    listModel.addElement(nuevaPelicula);
-
+                	Genero textoSeleccionado= new Genero() ;
+                	Pelicula peli= new Pelicula();
+                	peli.setGenero(textoSeleccionado);
+                	peli.setNombre(textnombre.getText());
+                    listModel.addElement(peli);
+                    int id=peli.getId()+1;
+                    lblIdValue.setText(""+id);
                     System.out.println("Película agregada: " + nombre + " - " + genero);
                 }
             }

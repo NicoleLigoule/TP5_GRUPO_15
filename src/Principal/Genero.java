@@ -6,6 +6,9 @@ public class Genero {
     public Genero(String Genero) {
         this.Genero = Genero;
     }
+    public Genero() {
+       
+    }
 
     public String getGenero() {
         return Genero;
