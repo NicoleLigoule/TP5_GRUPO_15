@@ -36,8 +36,10 @@ public class AgregarPeliculas extends JPanel {
         JLabel lblId = new JLabel("ID:");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
        
+     // Mostrar el próximo ID disponible al cargar la pantalla
+        JLabel lblIdValue = new JLabel(Pelicula.ProximoId());
+        //JLabel lblIdValue = new JLabel("1");
         
-        JLabel lblIdValue = new JLabel("1");
         lblIdValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
         
         // Nombre
@@ -132,8 +134,12 @@ public class AgregarPeliculas extends JPanel {
                 	peli.setGenero(genero);
                 	peli.setNombre(textnombre.getText());
                     listModel.addElement(peli);
-                    int id=peli.getId()+1;
-                    lblIdValue.setText(""+id);
+                    
+                 // Actualizar el próximo ID a mostrar en la etiqueta
+                    lblIdValue.setText(Pelicula.ProximoId());
+
+                    //int id=peli.getId()+1;
+                    //lblIdValue.setText(""+id);
                     System.out.println("Película agregada: " + nombre + " - " + genero);
                 }
             }
