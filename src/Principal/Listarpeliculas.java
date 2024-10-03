@@ -8,6 +8,10 @@ import javax.swing.DefaultListModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Listarpeliculas extends JPanel {
     private static DefaultListModel<Pelicula> ListModel;
@@ -47,8 +51,23 @@ public class Listarpeliculas extends JPanel {
 	}
 
     public void setDefaultListModel(DefaultListModel<Pelicula> listModelRecibido) {
-    	this.ListModel = listModelRecibido;
-    	list.setModel(listModelRecibido);
+    	List<Pelicula> listaPeliculas = new ArrayList<>();
+        for (int i = 0; i < listModelRecibido.size(); i++) {
+            listaPeliculas.add(listModelRecibido.getElementAt(i));
+        }
+
+
+        Collections.sort(listaPeliculas, new Comparator<Pelicula>() {
+            @Override
+            public int compare(Pelicula p1, Pelicula p2) {
+                return p1.getNombre().compareToIgnoreCase(p2.getNombre());    }
+        });
+        listModelRecibido.clear();
+        for (Pelicula p : listaPeliculas) {
+            listModelRecibido.addElement(p);
+        }
+        this.ListModel = listModelRecibido;
+        list.setModel(listModelRecibido);
     }
 	
 }

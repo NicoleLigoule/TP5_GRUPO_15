@@ -19,15 +19,14 @@ public class Principal extends JFrame {
     private static DefaultListModel<Pelicula> listModel;
     
     public Principal() {
-        // Configura la ventana principal
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 450, 300);
 
-        // Inicializa el contentPane
         contentPane = new JPanel();
-        contentPane.setLayout(new BorderLayout(0, 0)); // Usamos BorderLayout para manejar el cambio de paneles
-        setContentPane(contentPane); // Establece contentPane como el panel principal del JFrame
-
+        contentPane.setLayout(new BorderLayout(0, 0)); 
+        setContentPane(contentPane); 
+        
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
@@ -44,17 +43,16 @@ public class Principal extends JFrame {
 
         MnIAgregar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Remueve todos los componentes actuales de contentPane
+               
                 contentPane.removeAll();
 
-                // Crea una nueva instancia de AgregarPeliculas y le pasa el listModel
+               
                 AgregarPeliculas panel = new AgregarPeliculas();
-                panel.setDefaultListModel(listModel); // Pasa el DefaultListModel al panel de agregar películas
-
-                // Agrega el panel AgregarPeliculas al centro del contentPane
+                panel.setDefaultListModel(listModel); 
+                
                 contentPane.add(panel, BorderLayout.CENTER);
 
-                // Refresca la ventana para asegurarse de que los cambios se reflejen
+                
                 contentPane.repaint();
                 contentPane.revalidate();
             }
@@ -65,14 +63,12 @@ public class Principal extends JFrame {
         	public void actionPerformed(ActionEvent arg0) {
                 contentPane.removeAll();
 
-                // Crea una nueva instancia de AgregarPeliculas y le pasa el listModel
+                
                 Listarpeliculas panel = new Listarpeliculas();
-                 // Pasa el DefaultListModel al panel de agregar películas
-                panel.setDefaultListModel(listModel);
-                // Agrega el panel AgregarPeliculas al centro del contentPane
-                contentPane.add(panel, BorderLayout.CENTER);
 
-                // Refresca la ventana para asegurarse de que los cambios se reflejen
+                panel.setDefaultListModel(listModel);
+               contentPane.add(panel, BorderLayout.CENTER);
+
                 contentPane.repaint();
                 contentPane.revalidate();
         	}
@@ -85,7 +81,7 @@ public class Principal extends JFrame {
             public void run() {
                 try {
                     Principal frame = new Principal();
-                    // Inicializa el listModel
+
                     listModel = new DefaultListModel<Pelicula>();
                     frame.setVisible(true);
                 } catch (Exception e) {

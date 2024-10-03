@@ -32,13 +32,11 @@ public class AgregarPeliculas extends JPanel {
 
 
 
-        // Configuración de la etiqueta y campo de texto para el ID (aquí asumo que es auto-generado)
         JLabel lblId = new JLabel("ID:");
         lblId.setFont(new Font("Tahoma", Font.PLAIN, 14));
        
-     // Mostrar el próximo ID disponible al cargar la pantalla
+
         JLabel lblIdValue = new JLabel(Pelicula.ProximoId());
-        //JLabel lblIdValue = new JLabel("1");
         
         lblIdValue.setFont(new Font("Tahoma", Font.PLAIN, 14));
         
@@ -118,24 +116,23 @@ public class AgregarPeliculas extends JPanel {
         );
         setLayout(groupLayout);
 
-        // Acción para el botón "Aceptar"
+
         btnAceptar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String nombre = textnombre.getText();
                 Genero genero = (Genero) cbGenero.getSelectedItem();
 
-                // Verificar si el campo de texto está vacío o si se ha seleccionado el ítem predeterminado
-                if (nombre.isEmpty() || genero.getGenero().equals("Seleccione un género")) {
+            if (nombre.isEmpty() || genero.getGenero().equals("Seleccione un género")) {
                     JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
                 } else {
-                    // Crear un nuevo objeto Pelicula y agregarlo a listModel
+                    
                     Pelicula peli = new Pelicula();
                     peli.setGenero(genero);
                     peli.setNombre(textnombre.getText());
                     listModel.addElement(peli);
 
-                    // Actualizar el próximo ID a mostrar en la etiqueta
+
                     lblIdValue.setText(Pelicula.ProximoId());
 
                     //System.out.println("Película agregada: " + nombre + " - " + genero.getGenero());
@@ -144,7 +141,7 @@ public class AgregarPeliculas extends JPanel {
         });
     }
 
-    // Método para recibir el DefaultListModel desde Principal
+
     public void setDefaultListModel(DefaultListModel<Pelicula> listModelRecibido) {
         this.listModel = listModelRecibido;
     }

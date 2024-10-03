@@ -25,7 +25,7 @@ public class Pelicula {
 		return idPelicula;
 	}
 	public static String ProximoId() {
-		return " "+idPelicula;
+		return " "+(idPelicula+1);
 	}
 
 	@Override
