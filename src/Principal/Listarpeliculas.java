@@ -10,7 +10,9 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JList;
 
 public class Listarpeliculas extends JPanel {
-    private static DefaultListModel<Pelicula> listModel;
+    private static DefaultListModel<Pelicula> ListModel;
+    JList list = new JList();
+    
 	/**
 	 * Create the panel.
 	 */
@@ -18,7 +20,6 @@ public class Listarpeliculas extends JPanel {
 		
 		JLabel lblPeliculas = new JLabel("Peliculas");
 		
-		JList list = new JList();
 		GroupLayout groupLayout = new GroupLayout(this);
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -45,8 +46,9 @@ public class Listarpeliculas extends JPanel {
 
 	}
 
-	public static void setListModel(DefaultListModel<Pelicula> listModel) {
-		Listarpeliculas.listModel = listModel;
-	}
+    public void setDefaultListModel(DefaultListModel<Pelicula> listModelRecibido) {
+    	this.ListModel = listModelRecibido;
+    	list.setModel(listModelRecibido);
+    }
 	
 }

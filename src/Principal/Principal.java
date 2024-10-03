@@ -68,7 +68,7 @@ public class Principal extends JFrame {
                 // Crea una nueva instancia de AgregarPeliculas y le pasa el listModel
                 Listarpeliculas panel = new Listarpeliculas();
                  // Pasa el DefaultListModel al panel de agregar películas
-                panel.setListModel(listModel);
+                panel.setDefaultListModel(listModel);
                 // Agrega el panel AgregarPeliculas al centro del contentPane
                 contentPane.add(panel, BorderLayout.CENTER);
 
