@@ -30,7 +30,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return "" + Id + "," + Nombre + "," + genero + "";
+		return "" + Id + " - " + Nombre + ", " + genero + "";
 	}
 
 	public int getId() {

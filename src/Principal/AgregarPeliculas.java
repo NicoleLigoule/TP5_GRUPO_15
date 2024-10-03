@@ -125,22 +125,20 @@ public class AgregarPeliculas extends JPanel {
                 String nombre = textnombre.getText();
                 Genero genero = (Genero) cbGenero.getSelectedItem();
 
-                if (nombre.isEmpty() || genero.equals("Seleccione un género")) {
+                // Verificar si el campo de texto está vacío o si se ha seleccionado el ítem predeterminado
+                if (nombre.isEmpty() || genero.getGenero().equals("Seleccione un género")) {
                     JOptionPane.showMessageDialog(null, "Por favor, complete todos los campos.");
                 } else {
                     // Crear un nuevo objeto Pelicula y agregarlo a listModel
-                	Genero textoSeleccionado= new Genero() ;
-                	Pelicula peli= new Pelicula();
-                	peli.setGenero(genero);
-                	peli.setNombre(textnombre.getText());
+                    Pelicula peli = new Pelicula();
+                    peli.setGenero(genero);
+                    peli.setNombre(textnombre.getText());
                     listModel.addElement(peli);
-                    
-                 // Actualizar el próximo ID a mostrar en la etiqueta
+
+                    // Actualizar el próximo ID a mostrar en la etiqueta
                     lblIdValue.setText(Pelicula.ProximoId());
 
-                    //int id=peli.getId()+1;
-                    //lblIdValue.setText(""+id);
-                    System.out.println("Película agregada: " + nombre + " - " + genero);
+                    //System.out.println("Película agregada: " + nombre + " - " + genero.getGenero());
                 }
             }
         });
