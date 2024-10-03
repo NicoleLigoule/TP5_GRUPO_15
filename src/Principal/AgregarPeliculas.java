@@ -137,7 +137,11 @@ public class AgregarPeliculas extends JPanel {
 
                     //System.out.println("Película agregada: " + nombre + " - " + genero.getGenero());
                 }
+            textnombre.setText("");
+            cbGenero.setSelectedIndex(0);
+            
             }
+            
         });
     }
 
