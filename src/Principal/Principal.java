@@ -30,7 +30,7 @@ public class Principal extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
 
-        JMenu mnPeliculas = new JMenu("Peliculas");
+        JMenu mnPeliculas = new JMenu("Persona");
         mnPeliculas.setHorizontalAlignment(SwingConstants.LEFT);
         mnPeliculas.setBackground(Color.WHITE);
         mnPeliculas.setFont(new Font("Segoe UI", Font.PLAIN, 18));
@@ -76,6 +76,7 @@ public class Principal extends JFrame {
         mnPeliculas.add(MnIListar);
     }
 
+    
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
